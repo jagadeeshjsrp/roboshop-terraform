@@ -89,7 +89,22 @@ resource "aws_route53_record" "user" {
   records = [aws_instance.user.private_ip]
 }
 
+resource "aws_instance" "cart" {
+  ami           = data.aws_ami.centos.image_id
+  instance_type = "t3.micro"
 
+  tags = {
+    Name = "cart"
+  }
+}
+
+resource "aws_route53_record" "cart" {
+  zone_id = "Z01821482DK31A4C4NHX5"
+  name    = "cart-dev.devjsr1.online"
+  type    = "A"
+  ttl     = 300
+  records = [aws_instance.cart.private_ip]
+}
 resource "aws_instance" "mysql" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -159,22 +174,7 @@ resource "aws_route53_record" "payment" {
 }
 
 
-resource "aws_instance" "dispatch" {
-  ami           = data.aws_ami.centos.image_id
-  instance_type = "t3.micro"
 
-  tags = {
-    Name = "dispatch"
-  }
-}
-
-resource "aws_route53_record" "dispatch" {
-  zone_id = "Z01821482DK31A4C4NHX5"
-  name    = "dispatch-dev.devjsr1.online"
-  type    = "A"
-  ttl     = 300
-  records = [aws_instance.dispatch.private_ip]
-}
 
 
 
