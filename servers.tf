@@ -14,7 +14,7 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "frontend-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -31,7 +31,7 @@ resource "aws_instance" "mongodb" {
 }
 
 resource "aws_route53_record" "mongodb" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "mongodb-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -48,7 +48,7 @@ resource "aws_instance" "catalogue" {
 }
 
 resource "aws_route53_record" "catalogue" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "catalogue-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -65,7 +65,7 @@ resource "aws_instance" "redis" {
 }
 
 resource "aws_route53_record" "redis" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "redis-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -82,7 +82,7 @@ resource "aws_instance" "user" {
 }
 
 resource "aws_route53_record" "user" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "user-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -100,7 +100,7 @@ resource "aws_instance" "mysql" {
 }
 
 resource "aws_route53_record" "mysql" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "mysql-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -117,7 +117,7 @@ resource "aws_instance" "shipping" {
 }
 
 resource "aws_route53_record" "shipping" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "shipping-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -134,7 +134,7 @@ resource "aws_instance" "rabbitmq" {
 }
 
 resource "aws_route53_record" "rabbitmq" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "rabbitmq-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -151,7 +151,7 @@ resource "aws_instance" "payment" {
 }
 
 resource "aws_route53_record" "payment" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "payment-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
@@ -169,7 +169,7 @@ resource "aws_instance" "dispatch" {
 }
 
 resource "aws_route53_record" "dispatch" {
-  zone_id = Z01821482DK31A4C4NHX5
+  zone_id = "Z01821482DK31A4C4NHX5"
   name    = "dispatch-dev.devjsr1.online"
   type    = "A"
   ttl     = 300
