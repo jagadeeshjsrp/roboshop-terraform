@@ -14,8 +14,8 @@ variable "instance_type" {
 
 variable "components" {
   default = [ "frontend", "mongodb", "catalogue" ]
-
 }
+
 resource "aws_instance" "instance" {
   count         = length(var.components)
   ami           = data.aws_ami.centos.image_id
