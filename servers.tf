@@ -20,7 +20,7 @@ variable "components" {
     }
     catalogue = {
       name = "catalogue"
-      instance_type = "t3.small"
+      instance_type = "t3.micro"
     }
     redis = {
       name = "redis"
