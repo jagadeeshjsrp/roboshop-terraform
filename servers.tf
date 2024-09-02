@@ -64,6 +64,14 @@ resource "aws_instance" "instance" {
   }
 }
 
+resource "aws_route53_record" "records" {
+  for_each   = var.components
+  zone_id = "Z01821482DK31A4C4NHX5"
+  name    = "${each.value["name"]}-dev.devjsr1.online"
+  type    = "A"
+  ttl     = 300
+  records = [aws_instance.instance[each.value["name"]].private_ip]
+}
 
 /*resource "aws_route53_record" "frontend" {
   zone_id = "Z01821482DK31A4C4NHX5"
