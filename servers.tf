@@ -26,10 +26,11 @@ resource "null_resource" "provisioner" {
       "rm -rf roboshop",
       "git clone https://github.com/jagadeeshjsrp/roboshop-terraform.git",
       "cd roboshop",
-      "sudo bash ${each.value["name"]}.sh"
+      "sudo bash ${each.value["name"]}.sh ${each.value["password"]}"
     ]
   }
 }
+
 resource "aws_route53_record" "records" {
   for_each   = var.components
   zone_id = "Z01821482DK31A4C4NHX5"
