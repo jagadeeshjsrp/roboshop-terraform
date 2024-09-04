@@ -7,6 +7,7 @@ module "servers" {
   instance_type  = each.value["instance_type"]
   password       = lookup(each.value, "password", "null")
 }
+
 /*resource "aws_route53_record" "frontend" {
   zone_id = "Z01821482DK31A4C4NHX5"
   name    = "frontend-dev.devjsr1.online"
