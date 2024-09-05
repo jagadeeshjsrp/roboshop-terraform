@@ -68,7 +68,7 @@ resource "aws_instance" "frontend" {
 resource "aws_route53_record" "records" {
   for.each      = var.components
   zone_id = "Z01821482DK31A4C4NHX5"
-  name    = "${each.value["name"]}"-dev.jsr1.online"
+  name    = "${each.value["name"]}-dev.jsr1.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance[each.value["name"]].private_id]
