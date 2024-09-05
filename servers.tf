@@ -1,14 +1,24 @@
-module "servers" {
-  for_each = var.components
-
-  source = "./module"
-  component_name = each.value["name"]
-  env            = var.env
-  instance_type  = each.value["instance_type"]
-  password       = lookup(each.value, "password", "null")
+data "aws_ami" "centos" {
+  owners           = ["973714476881"]
+  most_recent      = true
+  name_regex       = "Centos-8-DevOps-Practice"
 }
 
-/*resource "aws_route53_record" "frontend" {
+variable "instance_type" {
+  default = "t3.micro"
+}
+
+resource "aws_instance" "frontend" {
+  ami           = data.aws_ami.centos.image_id
+  instance_type = var.instance_type
+  vpc_security_group_ids = ["data.aws_security_group.allow-all.id"]
+
+  tags = {
+    Name = "frontend"
+  }
+}
+
+resource "aws_route53_record" "frontend" {
   zone_id = "Z01821482DK31A4C4NHX5"
   name    = "frontend-dev.devjsr1.online"
   type    = "A"
@@ -175,4 +185,4 @@ resource "aws_route53_record" "payment" {
   type    = "A"
   ttl     = 300
   records = [aws_instance.payment.private_ip]
-}*/
+}
