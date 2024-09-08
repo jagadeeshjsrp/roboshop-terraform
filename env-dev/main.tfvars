@@ -1,4 +1,4 @@
-apps_servers = {
+app_servers = {
   frontend = {
     name = "frontend"
     instance_type = "t2.micro"
